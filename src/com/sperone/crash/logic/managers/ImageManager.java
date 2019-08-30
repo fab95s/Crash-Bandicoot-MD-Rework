@@ -1,4 +1,4 @@
-package com.sperone.crash.logic;
+package com.sperone.crash.logic.managers;
 
 import java.awt.Image;
 import java.io.IOException;
