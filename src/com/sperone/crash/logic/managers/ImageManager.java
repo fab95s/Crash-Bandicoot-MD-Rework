@@ -10,6 +10,9 @@ import javax.imageio.ImageIO;
 public class ImageManager {
 	public static String BACKGROUND_DEFAULT = "Background.jpg";
 	
+	public static String EXIT_BTN = "buttons/Exit.png";
+	public static String CLOSE_BTN = "buttons/Close.png";
+	
 	private Map<String, Image> images = new HashMap<String, Image>();
 	
 	public Image getImage(String imageName) {
