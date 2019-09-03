@@ -1,5 +1,6 @@
 package com.sperone.crash.graphic.panels;
 
+import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.Image;
 
@@ -14,6 +15,7 @@ public abstract class GamePanel extends JPanel {
 	
 	public GamePanel() {
 		super();
+		this.setLayout(new FlowLayout());
 	}
 	
 	@Override

@@ -24,17 +24,23 @@ public class GameWindow extends GamePanel {
 			System.exit(0);
 		};
 	};
+	private JButton play = BtnFactory.make(this.ImageM.getImage(ImageManager.PLAY_BTN));
+	private JButton close = BtnFactory.make(this.ImageM.getImage(ImageManager.CLOSE_BTN), clickExit);
 	private JButton exit = BtnFactory.make(this.ImageM.getImage(ImageManager.EXIT_BTN), clickExit);
 	
 	public GameWindow() {
 		super();
 		this.BG_Image = this.ImageM.getImage(ImageManager.BACKGROUND_DEFAULT);
+		this.add(play);
+		this.add(close);
 		this.add(exit);
 	}
 	
 	@Override
 	protected void paintComponent(Graphics g) {
-		exit.setLocation(50, 50);
+		play.setLocation((WindowSize.width / 2) - (play.getWidth() / 2), (WindowSize.height / 3) - play.getHeight());
+		exit.setLocation((WindowSize.width / 2) - (exit.getWidth() / 2), (WindowSize.height / 3) + exit.getHeight());
+		close.setLocation(WindowSize.width - close.getWidth() - 20, 10);
 		super.paintComponent(g);
 	}
 	
