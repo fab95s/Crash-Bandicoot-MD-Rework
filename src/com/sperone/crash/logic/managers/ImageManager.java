@@ -11,6 +11,7 @@ public class ImageManager {
 	public static String BACKGROUND_DEFAULT = "Background.jpg";
 	
 	public static String PLAY_BTN = "buttons/Play.png";
+	public static String EDITOR_BTN = "buttons/MapEditor.png";
 	public static String CLOSE_BTN = "buttons/Close.png";
 	public static String EXIT_BTN = "buttons/Exit.png";
 	

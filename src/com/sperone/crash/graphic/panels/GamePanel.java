@@ -6,12 +6,19 @@ import java.awt.Image;
 
 import javax.swing.JPanel;
 
+import com.sperone.crash.graphic.main.GameFrame;
+import com.sperone.crash.logic.factory.ButtonFactory;
+import com.sperone.crash.logic.factory.interfaces.IButtonFactory;
 import com.sperone.crash.logic.managers.ImageManager;
+import com.sperone.crash.logic.managers.PanelManager;
 
 @SuppressWarnings("serial")
 public abstract class GamePanel extends JPanel {
+	public static PanelManager PanelM = new PanelManager();
 	protected ImageManager ImageM = new ImageManager();
+	protected IButtonFactory BtnF = new ButtonFactory();
 	protected Image BG_Image;
+	protected int Space = 30;
 	
 	public GamePanel() {
 		super();
@@ -21,6 +28,6 @@ public abstract class GamePanel extends JPanel {
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		g.drawImage(BG_Image, 0, 0, GameWindow.WindowSize.width, GameWindow.WindowSize.height, this);
+		g.drawImage(BG_Image, 0, 0, GameFrame.WindowSize.width, GameFrame.WindowSize.height, this);
 	}
 }
