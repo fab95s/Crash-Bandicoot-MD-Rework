@@ -18,8 +18,8 @@ public class GameFrame extends JFrame {
 	public GameFrame() {
 		super("Crash Bandicoot MD");
 		this.setContentPane(GamePanel.PanelM.getPanel(PanelManager.MAIN));
-		this.setSize(640, 360);
-		this.setMinimumSize(new Dimension(640, 360));
+		this.setSize(720, 480);
+		this.setMinimumSize(new Dimension(720, 480));
 		this.setLocation(50, 50);
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

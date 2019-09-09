@@ -4,6 +4,7 @@ import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.Image;
 
+import javax.swing.JComponent;
 import javax.swing.JPanel;
 
 import com.sperone.crash.graphic.main.GameFrame;
@@ -18,7 +19,7 @@ public abstract class GamePanel extends JPanel {
 	protected ImageManager ImageM = new ImageManager();
 	protected IButtonFactory BtnF = new ButtonFactory();
 	protected Image BG_Image;
-	protected int Space = 30;
+	private int Space = 80;
 	
 	public GamePanel() {
 		super();
@@ -29,5 +30,13 @@ public abstract class GamePanel extends JPanel {
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		g.drawImage(BG_Image, 0, 0, GameFrame.WindowSize.width, GameFrame.WindowSize.height, this);
+	}
+	
+	protected int CenterHorizontalComponent(JComponent component) {
+		return (GameFrame.WindowSize.width / 2) - (component.getWidth() / 2);
+	}
+	
+	protected int CenterVerticalComponent(JComponent component, int numSpace) {
+		return (GameFrame.WindowSize.height / 10) + component.getHeight() + (this.Space * numSpace);
 	}
 }

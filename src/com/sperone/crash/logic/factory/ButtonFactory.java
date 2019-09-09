@@ -50,7 +50,9 @@ public class ButtonFactory implements IButtonFactory {
 		button.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				System.exit(0);
+				if(e.getComponent().isEnabled()) {
+					System.exit(0);
+				}
 			}
 		});
 		return button;
