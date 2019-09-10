@@ -6,10 +6,11 @@ import javax.swing.JButton;
 
 import com.sperone.crash.graphic.main.GameFrame;
 import com.sperone.crash.logic.managers.ImageManager;
+import com.sperone.crash.logic.managers.PanelManager;
 
 @SuppressWarnings("serial")
 public class MenuPanel extends GamePanel {
-	private JButton play = this.BtnF.make(this.ImageM.getImage(ImageManager.PLAY_BTN));
+	private JButton play = this.BtnF.make(this.ImageM.getImage(ImageManager.PLAY_BTN), PanelManager.LEVEL);
 	private JButton editor = this.BtnF.make(this.ImageM.getImage(ImageManager.EDITOR_BTN));
 	private JButton controls = this.BtnF.make(this.ImageM.getImage(ImageManager.CONTROLS_BTN));
 	private JButton close = this.BtnF.make(this.ImageM.getImage(ImageManager.CLOSE_BTN));
@@ -18,7 +19,6 @@ public class MenuPanel extends GamePanel {
 	public MenuPanel() {
 		super();
 		this.BG_Image = this.ImageM.getImage(ImageManager.BACKGROUND_DEFAULT);
-		play.setEnabled(false);
 		editor.setEnabled(false);
 		controls.setEnabled(false);
 		this.add(play);

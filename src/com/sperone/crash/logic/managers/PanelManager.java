@@ -7,6 +7,7 @@ import com.sperone.crash.graphic.panels.GamePanel;
 
 public class PanelManager {
 	public static String MAIN = "MenuPanel";
+	public static String LEVEL = "LevelPanel";
 	
 	private Map<String, GamePanel> panels = new HashMap<String, GamePanel>();
 	
