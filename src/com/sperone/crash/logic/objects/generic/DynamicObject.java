@@ -27,25 +27,48 @@ public class DynamicObject extends GameObject {
 	public void render(Graphics g) {
 		g.setColor(Color.BLUE);
 		g.fillRect(this.x, this.y, this.width, this.height);
-		
 		this.update();
 	}
 	
 	public void update() {
 		this.x += this.velX;
 		this.y += this.velY;
-		this.bounds.setBounds(this.x, this.y, this.width, this.height);
+		this.refreshBounds();
+	}
+	
+	public void refreshBounds() {
+		this.Bounds.setBounds(this.x, this.y, this.width, this.height);
+		this.TopBound.setBounds(this.x + 5, this.y, this.width - 10, 1);
+		this.BottomBound.setBounds(this.x + 5, this.y + this.height - 1, this.width - 10, 1);
+		this.RightBound.setBounds(this.x + this.width - 1, this.y + 5, 1, this.height - 10);
+		this.LeftBound.setBounds(this.x, this.y + 5, 1, this.height - 10);
 	}
 	
 	public void collide(List<GameObject> objects) {
 		objects.forEach(el -> {
-			if(!(el instanceof Player) && el.bounds.intersects(this.bounds)) {
+			// Top Collision
+			if(!(el instanceof Player) && el.Bounds.intersects(this.TopBound)) {
+				this.y = el.getY() + el.getHeight();
+				this.velY = 0;
+			}
+			// Bottom Collision
+			if(!(el instanceof Player) && el.Bounds.intersects(this.BottomBound)) {
 				this.y = el.getY() - this.height;
 				this.velY = 0;
 				this.falling = false;
 				this.jumping = false;
 			} else {
 				this.falling = true;
+			}
+			// Right Collision
+			if(!(el instanceof Player) && el.Bounds.intersects(this.RightBound)) {
+				this.x = el.getX() - this.width;
+				this.velX = 0;
+			}
+			// Left Collision
+			if(!(el instanceof Player) && el.Bounds.intersects(this.LeftBound)) {
+				this.x = el.getX() + this.width;
+				this.velX = 0;
 			}
 		});
 	}

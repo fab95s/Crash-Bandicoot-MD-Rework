@@ -9,12 +9,20 @@ public abstract class GameObject {
 	protected int width = 32;
 	protected int height = 32;
 	
-	protected Rectangle bounds;
+	protected Rectangle Bounds;
+	protected Rectangle TopBound;
+	protected Rectangle BottomBound;
+	protected Rectangle RightBound;
+	protected Rectangle LeftBound;
 	
 	public GameObject(int x, int y) {
 		this.x = x;
 		this.y = y;
-		this.bounds = new Rectangle(x, y, this.width, this.height);
+		this.Bounds = new Rectangle(x, y, this.width, this.height);
+		this.TopBound = new Rectangle(this.x + 5, this.y, this.width - 10, 1);
+		this.BottomBound = new Rectangle(this.x + 5, this.y + this.height - 1, this.width - 10, 1);
+		this.RightBound = new Rectangle(this.x + this.width - 1, this.y + 5, 1, this.height - 10);
+		this.LeftBound = new Rectangle(this.x, this.y + 5, 1, this.height - 10);
 	}
 	
 	public abstract void render(Graphics g);

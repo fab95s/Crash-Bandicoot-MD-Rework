@@ -19,6 +19,7 @@ public class LevelPanel extends GamePanel implements Runnable {
 		super();
 		objects.add(p);
 		for(int i = 0; i <= GameFrame.WindowSize.width + 32; i += 32) {
+			objects.add(new StaticObject(i + 100, GameFrame.WindowSize.height - 200));
 			objects.add(new StaticObject(i, GameFrame.WindowSize.height - 71));
 		}
 		this.addKeyListener(new KeyInput(p));
