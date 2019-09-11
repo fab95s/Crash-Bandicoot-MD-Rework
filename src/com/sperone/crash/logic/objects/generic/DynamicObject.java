@@ -40,8 +40,8 @@ public class DynamicObject extends GameObject {
 		this.Bounds.setBounds(this.x, this.y, this.width, this.height);
 		this.TopBound.setBounds(this.x + 5, this.y, this.width - 10, 1);
 		this.BottomBound.setBounds(this.x + 5, this.y + this.height - 1, this.width - 10, 1);
-		this.RightBound.setBounds(this.x + this.width - 1, this.y + 5, 1, this.height - 10);
-		this.LeftBound.setBounds(this.x, this.y + 5, 1, this.height - 10);
+		this.RightBound.setBounds(this.x + this.width - 1, this.y + 5, 1, this.height - 20);
+		this.LeftBound.setBounds(this.x, this.y + 5, 1, this.height - 20);
 	}
 	
 	public void collide(List<GameObject> objects) {
