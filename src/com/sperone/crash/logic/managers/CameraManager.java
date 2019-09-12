@@ -25,6 +25,6 @@ public class CameraManager {
 	
 	private void follow() {
 		this.x = -player.getX() + (GameFrame.WindowSize.width / 2);
-		//this.y = -player.getY() + (GameFrame.WindowSize.height / 2);
+		this.y = -player.getY() + (GameFrame.WindowSize.height - 200);
 	}
 }

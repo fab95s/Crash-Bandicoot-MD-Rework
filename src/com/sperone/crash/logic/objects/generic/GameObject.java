@@ -4,10 +4,11 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 
 public abstract class GameObject {
+	public static int Slot = 32;
 	protected int x;
 	protected int y;
-	protected int width = 32;
-	protected int height = 32;
+	protected int width = Slot;
+	protected int height = Slot;
 	
 	protected Rectangle Bounds;
 	protected Rectangle TopBound;
