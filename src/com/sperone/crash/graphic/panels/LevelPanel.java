@@ -6,6 +6,7 @@ import java.util.LinkedList;
 
 import com.sperone.crash.graphic.main.GameFrame;
 import com.sperone.crash.logic.events.KeyInput;
+import com.sperone.crash.logic.managers.CameraManager;
 import com.sperone.crash.logic.objects.Player;
 import com.sperone.crash.logic.objects.generic.GameObject;
 import com.sperone.crash.logic.objects.generic.StaticObject;
@@ -13,6 +14,7 @@ import com.sperone.crash.logic.objects.generic.StaticObject;
 @SuppressWarnings("serial")
 public class LevelPanel extends GamePanel implements Runnable {
 	private Player p = new Player(10, 10);
+	private CameraManager cam = new CameraManager(p);
 	private LinkedList<GameObject> objects = new LinkedList<GameObject>();
 	
 	public LevelPanel() {
@@ -32,10 +34,12 @@ public class LevelPanel extends GamePanel implements Runnable {
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, GameFrame.WindowSize.width, GameFrame.WindowSize.height);
 		
+		cam.beginCamera(g);
 		p.collide(objects);
 		objects.forEach(el -> {
 			el.render(g);
 		});
+		cam.endCamera(g);
 	}
 
 	@Override
