@@ -31,11 +31,11 @@ public class LevelPanel extends GamePanel implements Runnable {
 	@Override
 	public void run() {
 		while(true) {
-			repaint();
-			if(!this.hasFocus()) {
-				this.requestFocus();
-			}
 			try {
+				repaint();
+				if(!this.hasFocus()) {
+					this.requestFocus();
+				}
 				Thread.sleep(30);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
