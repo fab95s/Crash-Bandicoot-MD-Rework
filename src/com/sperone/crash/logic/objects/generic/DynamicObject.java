@@ -27,6 +27,13 @@ public class DynamicObject extends GameObject {
 	public void render(Graphics g) {
 		g.setColor(Color.BLUE);
 		g.fillRect(this.x, this.y, this.width, this.height);
+		if(true) {
+			g.setColor(Color.RED);
+			g.fillRect(this.TopBound.x, this.TopBound.y, this.TopBound.width, this.TopBound.height);
+			g.fillRect(this.BottomBound.x, this.BottomBound.y, this.BottomBound.width, this.BottomBound.height);
+			g.fillRect(this.RightBound.x, this.RightBound.y, this.RightBound.width, this.RightBound.height);
+			g.fillRect(this.LeftBound.x, this.LeftBound.y, this.LeftBound.width, this.LeftBound.height);
+		}
 		this.update();
 	}
 	
@@ -39,34 +46,35 @@ public class DynamicObject extends GameObject {
 	public void refreshBounds() {
 		this.Bounds.setBounds(this.x, this.y, this.width, this.height);
 		this.TopBound.setBounds(this.x + 5, this.y, this.width - 10, 1);
-		this.BottomBound.setBounds(this.x + 5, this.y + this.height - 1, this.width - 10, 1);
-		this.RightBound.setBounds(this.x + this.width - 1, this.y + 5, 1, this.height - 20);
-		this.LeftBound.setBounds(this.x, this.y + 5, 1, this.height - 20);
+		this.BottomBound.setBounds(this.x + 5, this.y + this.height, this.width - 10, 1);
+		this.RightBound.setBounds(this.x + this.width - 1, this.y + 10, 1, this.height - 20);
+		this.LeftBound.setBounds(this.x, this.y + 10, 1, this.height - 20);
 	}
 	
 	public void collide(List<GameObject> objects) {
 		objects.forEach(el -> {
 			// Top Collision
-			if(!(el instanceof Player) && el.Bounds.intersects(this.TopBound)) {
+			if(!(el instanceof Player) & el.Bounds.intersects(this.TopBound)) {
 				this.y = el.getY() + el.getHeight();
 				this.velY = 0;
 			}
 			// Bottom Collision
-			if(!(el instanceof Player) && el.Bounds.intersects(this.BottomBound)) {
-				this.y = el.getY() - this.height;
-				this.velY = 0;
+			if(!(el instanceof Player) & el.Bounds.intersects(this.BottomBound)) {
+				System.out.println(this.velY);
+				this.y = el.getY() - this.height - (this.jumping ? 8 : 0);
+				this.velY = (this.jumping ? this.velY : 0);
 				this.falling = false;
 				this.jumping = false;
 			} else {
 				this.falling = true;
 			}
 			// Right Collision
-			if(!(el instanceof Player) && el.Bounds.intersects(this.RightBound)) {
+			if(!(el instanceof Player) & el.Bounds.intersects(this.RightBound)) {
 				this.x = el.getX() - this.width;
 				this.velX = 0;
 			}
 			// Left Collision
-			if(!(el instanceof Player) && el.Bounds.intersects(this.LeftBound)) {
+			if(!(el instanceof Player) & el.Bounds.intersects(this.LeftBound)) {
 				this.x = el.getX() + this.width;
 				this.velX = 0;
 			}

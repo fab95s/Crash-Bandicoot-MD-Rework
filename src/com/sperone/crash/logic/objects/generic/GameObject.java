@@ -22,8 +22,8 @@ public abstract class GameObject {
 		this.Bounds = new Rectangle(x, y, this.width, this.height);
 		this.TopBound = new Rectangle(this.x + 5, this.y, this.width - 10, 1);
 		this.BottomBound = new Rectangle(this.x + 5, this.y + this.height - 1, this.width - 10, 1);
-		this.RightBound = new Rectangle(this.x + this.width - 1, this.y + 5, 1, this.height - 20);
-		this.LeftBound = new Rectangle(this.x, this.y + 5, 1, this.height - 20);
+		this.RightBound = new Rectangle(this.x + this.width - 1, this.y + 10, 1, this.height - 20);
+		this.LeftBound = new Rectangle(this.x, this.y + 10, 1, this.height - 20);
 	}
 	
 	public abstract void render(Graphics g);
